@@ -1,0 +1,156 @@
+ul.select-buttons li:first-child {
+    display: none;
+}
+ul.select-buttons li {
+    list-style-type: none;
+    vertical-align: middle;
+}
+.variations_form .variations tr, .variations_form .variations td, .variations_form .variations .select-buttons {
+    padding: 0!important;
+}
+.hide-this{
+    display:none;
+}
+
+
+form#dollyRadioWrapper label:first-of-type {
+    margin-right: 30px;
+}
+
+form#dollyRadioWrapper {
+    margin: 1em 0;
+}
+input#dyes+label>span.et-tooltip {
+    text-decoration: underline;
+}
+
+#dollyRadioWrapper .et-tooltip-box {
+    width: 25em;
+    color: #00529c!important;
+    line-height: 1.5;
+}
+#customer_details input {
+    border: 3px solid #01519c!important;
+}
+
+.variations_form .variations ul {
+
+    border: 3px solid #fdb945;
+    border-radius: 3px !important;
+
+
+}
+.variations_form .variations {
+    border: none;
+}
+a.added_to_cart.wc-forward {
+    display: none;
+}
+.product_title.entry-title{
+    display: none;
+}
+#order_review_heading, .woocommerce-checkout-review-order-table tr:not(.order-total), .woocommerce-order-details {
+    display: none;
+}
+woocommerce-table woocommerce-table--order-details shop_table order_details
+table.shop_table.woocommerce-checkout-review-order-table {
+    margin-top: 2em;
+}
+l.select-buttons a {
+
+    height: 100%;
+
+
+}
+#submit-reminder{
+    display: none;
+}
+
+
+/*.single_add_to_cart_button {
+    display: none!important;
+}*/
+
+form.variations_form span.woocommerce-Price-amount.amount {
+    display: none;
+}
+
+p.price {
+    display: none;
+}
+
+a.reset_variations {
+    display: none!important;
+}
+
+.product_meta {
+    display: none;
+}
+
+.woocommerce-message {
+    display: none;
+}
+
+nav.woocommerce-breadcrumb {
+    display: none;
+}
+
+
+
+
+
+#main-header a.et-cart-info {
+    display: none;
+}
+
+
+#subscribeDonationWrapper {
+    margin-bottom: 1em;
+}
+
+
+ul.select-buttons a {
+
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 5px;
+}
+
+ul.select-buttons a.picked {
+    background: #fdb945;
+    color: #fff;
+    font-weight: 700;
+    height: 100%;
+}
+
+/*only show button if user messes with variation form*/
+.single_add_to_cart_button, .submit-reminder {
+
+    display: none;
+
+}
+
+
+@media all and (min-width: 568px) {
+
+    .variations_form .variations ul {
+
+
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+
+    }
+
+    ul.select-buttons li {
+
+        display: inline-block;
+        width: 20%;
+
+    }
+
+}
