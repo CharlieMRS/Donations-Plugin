@@ -4,7 +4,7 @@ $(function ($) {
     var var_form_238 = $("#var-form-238").get();
     var $var_form_79 = $("#var-form-79");
     var $var_form_238 = $("#var-form-238");
-    var $theCheckbox = $("input#subscribeDonation");
+    var $subscribeCheckbox = $("input#subscribeDonation");
     var i = 0;
 
     var donation = $('.woocommerce-checkout-review-order-table .woocommerce-Price-amount.amount').first();
@@ -13,12 +13,11 @@ $(function ($) {
 
     var variationPriceText = donation.text();
     var variationPrice = parseInt(donation.text());
-    var nyp = false;
-    if ($.inArray(variationPrice, [35,50,125,250]) === -1) {nyp = true;}
+    var nyp = $.inArray(variationPrice, [35,50,125,250]) === -1;
 
     donation.html(origVariation);
 
-    if ( $theCheckbox.is(':checked') ){
+    if ( $subscribeCheckbox.is(':checked') ){
 
         if (nyp) {
             $('#var-form-79 .select-buttons li:last-child a').addClass( "picked" ).text(variationPriceText);
@@ -53,7 +52,7 @@ $(function ($) {
         $var_form_79.toggle();
     }
 
-    $theCheckbox.change(function() {
+    $subscribeCheckbox.change(function() {
         $var_form_79.toggle();
         $var_form_238.toggle();
     });

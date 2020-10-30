@@ -16,7 +16,10 @@ if (!defined('WPINC')) {
 /**
  * Check if WooCommerce is active
  **/
-if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))) || array_key_exists('woocommerce/woocommerce.php', get_site_option('active_sitewide_plugins'))):
+if (
+        in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))
+        || array_key_exists('woocommerce/woocommerce.php', get_site_option('active_sitewide_plugins'))
+) {
 
     function tallgrass_woo_enqueue_scripts()
     {
@@ -37,27 +40,28 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
     add_shortcode('product_on_checkout_page', 'product_on_checkout_page_func');
     function product_on_checkout_page_func()
     {
-
         ob_start(); ?>
         <div id="subscribeDonationWrapper">
-            <input type="checkbox" id="subscribeDonation" name="subscribeDonation"
-                   value="subscribeDonation" <?php echo (get_class(array_values(WC()->cart->cart_contents)[0]['data']) != "WC_Product_Variation") ? 'checked' : ''; ?> >
-            <label for="subscribeDonation">Yes, automatically repeat this donation every month.</label>
+            <label>
+                <input type="checkbox" id="subscribeDonation" name="subscribeDonation" value="subscribeDonation"
+                    <?php echo (get_class(array_values(WC()->cart->cart_contents)[0]['data']) != "WC_Product_Variation") ? 'checked' : ''; ?>
+                >
+                Yes, automatically repeat this donation every month.
+            </label>
         </div>
 
         <?php
 
-        $params = array(
-            'p' => array(238, 79),
+        $wp_query = new WP_Query([
+            'p' => [238, 79],
             'post_type' => 'product'
-        );
-        $wp_query = new WP_Query($params);
+        ]);
         if ($wp_query->have_posts()) :
             while ($wp_query->have_posts()) :
                 $wp_query->the_post();
 
                 global $woocommerce;
-                remove_action('woocommerce_single_product_summary', array($woocommerce->structured_data, 'generate_product_data'), 60);
+                remove_action('woocommerce_single_product_summary', [$woocommerce->structured_data, 'generate_product_data'], 60);
                 $id = get_the_id();
                 echo "<div id='var-form-" . $id . "'>";
                 do_action('woocommerce_single_product_summary');
@@ -243,6 +247,6 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
         echo "<p class='submit-reminder' style='font-size: .8em;'>Important: Please click 'Update' button before proceeding to checkout form below.</p>";
     }
 
-endif;
+}
 
 
